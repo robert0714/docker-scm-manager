@@ -1,0 +1,25 @@
+# mkdir /mnt/sdb/svn/config/svn_TDD16
+# chown 1000:1000 /mnt/sdb/svn/config
+
+version: "3"
+services:
+ svn_TDD16:
+   container_name: svn_TDD16
+   restart: always
+   image: sdorra/scm-manager:1.60
+   volumes:
+     - /mnt/sdb/svn/config/svn_TDD16:/var/lib/scm
+   environment:
+     - TZ=Asia/Taipei
+   ports:
+     - "8180:8080"
+svn_TDD52:
+   container_name: svn_TDD52
+   restart: always
+   image: sdorra/scm-manager:1.60
+   volumes:
+     - /mnt/sdb/svn/config/svn_TDD52:/var/lib/scm
+   environment:
+     - TZ=Asia/Taipei
+   ports:
+     - "8181:8080"
