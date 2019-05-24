@@ -6,22 +6,19 @@ services:
  svn_TDD16:
    container_name: svn_TDD16
    restart: always
-   image: sdorra/scm-manager:1.60
+   image: tomcat:8.5.41-jre8 
    volumes:
      - /mnt/sdb/svn/config/svn_TDD16:/var/lib/scm
-     - $PWD/server-config-TDD16.xml:/opt/scm-server/conf/server-config.xml:z
    environment:
      - TZ=Asia/Taipei
    ports:
      - "8180:8080"
-#   network_mode: "host"
  svn_TDD52:
    container_name: svn_TDD52
    restart: always
-   image: sdorra/scm-manager:1.60
+   image: tomcat:8.5.41-jre8
    volumes:
      - /mnt/sdb/svn/config/svn_TDD52:/var/lib/scm
-     - $PWD/server-config-TDD52.xml:/opt/scm-server/conf/server-config.xml:z
    environment:
      - TZ=Asia/Taipei
    ports:
