@@ -10,6 +10,7 @@ services:
    volumes:
      - /mnt/sdb/svn/config/svn_TDD16:/var/lib/scm
      - $PWD/server-config-TDD16.xml:/opt/scm-server/conf/server-config.xml:z
+     - $PWD/logs/TDD16:/var/lib/scm/logs:z 
    environment:
      - TZ=Asia/Taipei
    ports:
@@ -22,6 +23,7 @@ services:
    volumes:
      - /mnt/sdb/svn/config/svn_TDD52:/var/lib/scm
      - $PWD/server-config-TDD52.xml:/opt/scm-server/conf/server-config.xml:z
+     - $PWD/logs/TDD52:/var/lib/scm/logs:z
    environment:
      - TZ=Asia/Taipei
    ports:
