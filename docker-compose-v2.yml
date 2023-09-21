@@ -1,0 +1,26 @@
+# mkdir /mnt/sdb/svn/config/svn_TDD16
+# chown 1000:1000 /mnt/sdb/svn/config
+
+version: "3.3"
+services:
+  svn_TDD55:
+    container_name: svn_TDD55
+    restart: always
+    image: scmmanager/scm-manager:2.46.1
+    volumes:
+      # - /mnt/sdb/svn/config/svn_TDD55:/var/lib/scm:z
+      - $PWD/config/svn_TDD55:/var/lib/scm:z
+      - $PWD/server-config-v2-TDD55.xml:/etc/scm/server-config.xml:z
+    environment:
+      - TZ=Asia/Taipei
+    ports:
+      - "3128:8080"
+  nginx:
+    image: nginx:1.25.1
+    container_name: nginx
+    restart: on-failure
+    volumes:
+     - $PWD/nginx.conf:/etc/nginx/nginx.conf:ro
+    environment:
+      - TZ=Asia/Taipei
+    network_mode: host
